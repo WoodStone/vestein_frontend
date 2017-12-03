@@ -1,0 +1,26 @@
+#portrait {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.home_page {
+    width: 60rem;
+}
+
+/*
+.debug {
+    border-color: red;
+    border-style: dashed;
+    border-width: 0.5px;
+}
+*/

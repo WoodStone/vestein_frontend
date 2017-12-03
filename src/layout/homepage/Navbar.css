@@ -1,0 +1,12 @@
+.home_page__navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+
+    font-size: 2rem;
+}
+
+.home_page__navbar a {
+
+}

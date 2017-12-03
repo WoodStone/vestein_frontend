@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+
+html {
+    font-size: 65%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+}
+
+body {
+    /*background-color: floralwhite;*/
+    font-family: 'Work Sans', sans-serif;
+}
+
+.vd_container_main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 10%;
+    /*justify-content: center;*/
+}
+
+.vd_container_main__vertical {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.vd_container_sub {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.vd_container_xx {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    padding-right: 1em;
+}
+
+.vd_container_xx a {
+    margin: 2rem;
+}

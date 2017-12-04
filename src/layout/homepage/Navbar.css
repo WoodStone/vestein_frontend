@@ -8,5 +8,16 @@
 }
 
 .home_page__navbar a {
+    font-weight: 600;
+    margin: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    color: #252525;
+    -webkit-transition: color 0.25s ease;
+    -moz-transition: color 0.25s ease;
+    transition: color 0.25s ease;
+}
 
+.home_page__navbar a:hover {
+    color: deepskyblue;
 }

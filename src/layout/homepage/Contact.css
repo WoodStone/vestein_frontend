@@ -1,7 +1,26 @@
 .home_page__contact {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
     font-size: 2rem;
 }
 
 .home_page__contact a {
+    margin: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    color: #252525;
+    -webkit-transition: color 0.25s ease;
+    -moz-transition: color 0.25s ease;
+    transition: color 0.25s ease;
+}
+
+.home_page__contact a:hover {
+    color: deepskyblue;
+}
+
+.home_page__contact i::before {
     margin: 1rem;
 }

@@ -14,11 +14,17 @@ body {
     font-family: 'Work Sans', sans-serif;
 }
 
+.debug {
+    border-color: red;
+    border-style: dashed;
+    border-width: 0.5px;
+}
+
 .vd_container_main {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-top: 10%;
+    /*margin-top: 10%;*/
     /*justify-content: center;*/
 }
 

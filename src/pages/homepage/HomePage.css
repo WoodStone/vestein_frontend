@@ -14,13 +14,7 @@ hr {
 }
 
 .home_page {
+    margin-top: 10%;
     width: 60rem;
 }
 
-/*
-.debug {
-    border-color: red;
-    border-style: dashed;
-    border-width: 0.5px;
-}
-*/

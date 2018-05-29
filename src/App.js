@@ -10,6 +10,7 @@ import Blog from "./pages/blog/Blog";
 import Card from "./pages/homepage/Card";
 import HomePage from "./pages/homepage/HomePage";
 import Projects from "./pages/projects/Projects";
+import Admin from "./pages/debug/Admin";
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
               <Route path="/projects" component={Projects}/>
               <Route path="/blog" component={Blog}/>
               <Route path="/about" component={Card}/>
+              <Route path="/admin" component={Admin}/>
             </div>
           </Router>
         </Provider>

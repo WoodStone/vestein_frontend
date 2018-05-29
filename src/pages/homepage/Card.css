@@ -20,13 +20,15 @@
 }
 
 .profile_card__info h1 {
-    font-size: 3rem;
-    line-height: 3rem;
+    font-size: 2rem;
+    line-height: 2rem;
     margin-bottom: 0.1em;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .profile_card__info h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 300;
+    font-family: 'Work Sans', sans-serif;
 }

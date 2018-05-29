@@ -4,7 +4,11 @@ class Blog extends Component {
 
   render() {
     return (
-      <span>Blog</span>
+        <div>
+          <h1>Hei!</h1>
+          <p>Dette er en placeholder :)</p>
+
+        </div>
     )
   }
 

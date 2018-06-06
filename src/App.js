@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
 
-        <Provider store={store}>
+        <Provider store={store} style={{minHeight: "100%"}}>
           <Router>
             <div className="vd_container_main">
               <Route exact path="/" component={HomePage}/>

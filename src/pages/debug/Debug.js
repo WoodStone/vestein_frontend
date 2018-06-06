@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {GET_BLOGPOSTS, GET_CHECK, GET_LOGOUT, POST_BLOGPOST, POST_LOGIN} from "../../config";
+import {BLOG, BLOGPOST, GET_CHECK, GET_LOGOUT, POST_LOGIN} from "../../config";
 import {Button, Header, Segment} from "semantic-ui-react";
 import axios from "axios/index";
 
@@ -21,8 +21,8 @@ class Debug extends Component {
           <ButtonGet that={this} url={GET_CHECK} label={"Test Auth"}/>
           <ButtonGet that={this} url={GET_LOGOUT} label={"Logout"}/>
 
-          <ButtonGet that={this} url={GET_BLOGPOSTS} label={"get posts"}/>
-          <ButtonPost that={this} url={POST_BLOGPOST} label={"Add post"} data={{user: "potato", header: "hei", content: "ewfawefawefawefawofpkawpk"}}/>
+          <ButtonGet that={this} url={BLOG} label={"get posts"}/>
+          <ButtonPost that={this} url={BLOG} label={"Add post"} data={{user: "potato", header: "hei", content: "ewfawefawefawefawofpkawpk"}}/>
 
           <Segment.Group size={"huge"} style={{width: "40%"}}>
             <Segment color={"blue"} attached>{url}</Segment>

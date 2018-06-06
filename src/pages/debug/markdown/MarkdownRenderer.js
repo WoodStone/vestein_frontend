@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { nextToken } from './scanner';
 
 class MarkdownRenderer extends Component {
 
@@ -13,14 +14,19 @@ class MarkdownRenderer extends Component {
 
   render() {
     const {md} = this.props;
+    //let result = nextToken(md, 0);
     return (
-        <div>
-          <h1>TODO: mardown parsing</h1>
-
-        </div>
+        <pre>
+         {md}
+        </pre>
     )
   }
 
 }
+
+const symbolTable = {
+  "#": "#",
+  "\n": "NEWLINE",
+};
 
 export default MarkdownRenderer

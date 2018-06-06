@@ -6,6 +6,7 @@ import Login from "./Login";
 import {check, logout} from "../../redux/actions/auth";
 import {connect} from "react-redux";
 import Blog from "../blog/Blog";
+import Markdown from "./markdown/Markdown";
 
 class Admin extends Component {
 
@@ -45,20 +46,21 @@ class Admin extends Component {
     //let activeItem = this.props.location.pathname.replace(this.props.match.path, "");
     let activeItem = this.props.location.pathname;
     return (
-        <div >
+        <div className="vd_container_main" style={{flexWrap: "nowrap"}}>
             <Menu attached={"top"} inverted size={"huge"}>
               <Menu.Item as={Link} to={"/"} name={"Home"}/>
               <Menu.Item as={Link} to={url} name={"Admin panel"} active={activeItem === url}/>
 
               {this.renderMenuItem(url+"/debug", "debug", activeItem, user)}
-              {this.renderMenuItem(url+"/some", "some", activeItem, user)}
+              {this.renderMenuItem(url+"/markdown", "markdown", activeItem, user)}
+
 
               {this.renderRightMenu(user, logout, url, activeItem)}
             </Menu>
 
             <ProtectedRoute exact path={url} component={Blog} user={user}/>
             <ProtectedRoute path={url + "/debug"} component={Debug} user={user}/>
-            <ProtectedRoute path={url + "/some"} component={Blog} user={user}/>
+            <ProtectedRoute path={url + "/markdown"} component={Markdown} user={user}/>
             <Route path={url + "/login"} component={Login}/>
         </div>
     )

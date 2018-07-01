@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BLOG, BLOGPOST, GET_CHECK, GET_LOGOUT, POST_LOGIN} from "../../config";
+import {BLOG, GET_CHECK, GET_LOGOUT, POST_LOGIN} from "../../config";
 import {Button, Header, Segment} from "semantic-ui-react";
 import axios from "axios/index";
 

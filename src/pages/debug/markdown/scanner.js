@@ -173,7 +173,6 @@ export const nextToken = (input, i) => {
             break;
           default:
             return newToken("TICK", 1, i, --pos);
-            break;
         }
         break;
       case 16:

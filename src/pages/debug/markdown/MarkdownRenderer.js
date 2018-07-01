@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { nextToken } from './scanner';
 
 class MarkdownRenderer extends Component {
 
@@ -7,26 +6,27 @@ class MarkdownRenderer extends Component {
     super(props)
   }
 
-  constructMD(md) {
-    let list = md.split("\n");
-
-  }
-
   render() {
     const {md} = this.props;
-    //let result = nextToken(md, 0);
-    return (
-        <pre>
-         {md}
-        </pre>
-    )
+    // console.log(md);
+
+    return md.isMarkdown ?
+      <Markdown1 {...md}/>
+      :
+      <NotMarkdown {...md}/>
   }
 
 }
 
-const symbolTable = {
-  "#": "#",
-  "\n": "NEWLINE",
-};
+const NotMarkdown = (o) => (
+  o.formatted ?
+    <pre>{JSON.stringify(o.data, null, 2)}</pre>
+    :
+    <div>{JSON.stringify(o.data)}</div>
+);
+
+const Markdown1 = (o) => (
+  <div>{o.data}</div>
+);
 
 export default MarkdownRenderer

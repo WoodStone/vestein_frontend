@@ -23,6 +23,7 @@
   },
   "proxy": "http://localhost:9000",
   "devDependencies": {
-    "jsdoc": "^3.5.5"
+    "jsdoc": "^3.5.5",
+    "minami": "^1.2.3"
   }
 }

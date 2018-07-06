@@ -18,7 +18,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "doc": "jsdoc -c jsdoc.json"
   },
-  "proxy": "http://localhost:9000"
+  "proxy": "http://localhost:9000",
+  "devDependencies": {
+    "jsdoc": "^3.5.5"
+  }
 }

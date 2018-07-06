@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import MarkdownInput from "./MarkdownInput";
 import MarkdownRenderer from "./MarkdownRenderer";
 import {Button, Grid, Menu} from "semantic-ui-react";
-import {tokens as genTokens} from "./scanner";
-import Parser from "./parser";
+import Scanner from "../../../core/markdown/scanner";
+import Parser from "../../../core/markdown/parser";
 import axios from "axios/index";
 import {BLOG} from "../../../config";
 
@@ -11,6 +11,9 @@ class Markdown extends Component {
 
   constructor(props) {
     super(props);
+
+    // this.scanner = new Scanner();
+    this.parser = new Parser();
 
     this.state = {
       data: null,
@@ -51,10 +54,9 @@ class Markdown extends Component {
 
   format(input, isTokens, isSyntax, isMarkdown) {
     if (isTokens) {
-      return genTokens(input);
+      return Scanner.generateTokens(input);
     } else if (isSyntax) {
-      let p = new Parser(genTokens(input));
-      return p.generate();
+      return this.parser.generate(Scanner.generateTokens(input));
     } else if (isMarkdown) {
       return "potato";
     }

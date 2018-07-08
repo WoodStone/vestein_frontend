@@ -219,9 +219,9 @@ class Scanner {
             case "\n":
               return new Token("LINEBREAK", null, i, pos);
             case "(":
-              return new Token("LEFT_PARENTHESE", "(", i, pos);
+              return new Token("LEFT_PARENTHESIS", "(", i, pos);
             case ")":
-              return new Token("RIGHT_PARANTHESE", ")", i, pos);
+              return new Token("RIGHT_PARENTHESIS", ")", i, pos);
             case "[":
               return new Token("LEFT_BRACKET", "[", i, pos);
             case "]":

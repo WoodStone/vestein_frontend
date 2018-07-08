@@ -14,7 +14,7 @@ class Scanner {
     let index = 0;
 
     while (true) {
-      let next = Scanner.nextToken(input, index);
+      let next = Scanner.nextToken2(input, index);
       if (next == null) {
         break;
       }
@@ -99,8 +99,8 @@ class Scanner {
               state = 2;
               break;
             default:
-              state = 3;
-              break;
+              return new Token("S", input.substring(i, --pos), i, pos);
+              // break;
           }
           break;
         case 2:
@@ -109,7 +109,8 @@ class Scanner {
               state = 2;
               break;
             case "\t":
-              state = 2; break;
+              state = 2;
+              break;
             default:
               return new Token("HS", input.substring(i, --pos), i, pos);
           }
@@ -203,6 +204,162 @@ class Scanner {
     }
   }
 
+  static nextToken2(input, i) {
+    let pos = i;
+    let state = 0;
+
+    while (true) {
+      const c = input[pos++];
+      switch (state) {
+        case 0:
+          switch (c) {
+            case "#":
+              state = 1;
+              break;
+            case "\n":
+              return new Token("LINEBREAK", null, i, pos);
+            case "(":
+              return new Token("LEFT_PARENTHESE", "(", i, pos);
+            case ")":
+              return new Token("RIGHT_PARANTHESE", ")", i, pos);
+            case "[":
+              return new Token("LEFT_BRACKET", "[", i, pos);
+            case "]":
+              return new Token("RIGHT_BRACKET", "]", i, pos);
+            case "=":
+              return new Token("EQUAL", "=", i, pos);
+            case "!":
+              return new Token("MARK", "!", i, pos);
+            case ":":
+              return new Token("COLON", ":", i, pos);
+            case "*":
+              state = 4;
+              break;
+            case "_":
+              state = 5;
+              break;
+            case "~":
+              state = 6;
+              break;
+            case "`":
+              state = 8;
+              break;
+            case ">":
+              state = 11;
+              break;
+            case undefined:
+              return null;
+            default:
+              state = -2;
+              break;
+          }
+          break;
+        case 1:
+          switch (c) {
+            case "#":
+              break;
+            case " ":
+            case "\t":
+              state = 2;
+              break;
+            default:
+              state = -1;
+              break;
+          }
+          break;
+        case 2:
+          switch (c) {
+            case " ":
+            case "\t":
+              break;
+            default:
+              return new Token("HEADER", input.substring(i, --pos), i, pos);
+          }
+          break;
+        case 4:
+          switch (c) {
+            case "*":
+              break;
+            default:
+              return new Token("ASTERISK", --pos - i, i, pos);
+          }
+          break;
+        case 5:
+          switch (c) {
+            case "_":
+              break;
+            default:
+              return new Token("UNDERSCORE", --pos - i, i, pos);
+          }
+          break;
+        case 6:
+          switch (c) {
+            case "~":
+              state = 7;
+              break;
+            default:
+              state = -1;
+          }
+          break;
+        case 7:
+          return new Token("STRIKE", "~~", i, --pos);
+        case 8:
+          switch (c) {
+            case "`":
+              state = 9;
+              break;
+            default:
+              return new Token("TICK", "`", i, --pos);
+          }
+          break;
+        case 9:
+          switch (c) {
+            case "`":
+              state = 10;
+              break;
+            default:
+              state = -1;
+          }
+          break;
+        case 10:
+          return new Token("TICKS", "```", i, --pos);
+        case 11:
+          switch (c) {
+            case "<":
+              return new Token("SIGN", "<", i, --pos);
+            default:
+              state = -1;
+          }
+          break;
+        case -1:
+          return new Token("S", input.substring(i, --pos), i, pos);
+        case -2:
+          if (specChars[c] || c === undefined) {
+            return new Token("S", input.substring(i, --pos), i, pos);
+          }
+          break;
+        default:
+          return null;
+      }
+    }
+  }
+
 }
+
+const specChars = {
+  "\n": true,
+  "(": true,
+  ")": true,
+  "[": true,
+  "]": true,
+  "*": true,
+  "_": true,
+  "=": true,
+  "~": true,
+  "!": true,
+  ":": true,
+  "`": true,
+  ">": true
+};
 
 export default Scanner;

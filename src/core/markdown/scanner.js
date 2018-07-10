@@ -230,8 +230,8 @@ class Scanner {
               return new Token("EQUAL", "=", i, pos);
             case "!":
               return new Token("MARK", "!", i, pos);
-            case ":":
-              return new Token("COLON", ":", i, pos);
+            // case ":":
+            //   return new Token("COLON", ":", i, pos);
             case "*":
               state = 4;
               break;
